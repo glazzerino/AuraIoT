@@ -8,19 +8,29 @@ var firebaseConfig = {
     appId: "1:878167968710:web:dfc997fb592aedfa4000c7",
     measurementId: "G-R72RH86440"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-const facundo = "FACUNDO es gei";
-console.log(facundo);
 
-var camera = firebase.database().ref("CAMERA/IMAGE/");
+var images = firebase.database().ref("CAMERA/IMAGE/");
 
-var control = false;
-camera.on("child_added", (snapshot) => {
-    if (control) {
-        const data = snapshot.val();
-        console.log(data);
-    }
-control = true;
+images.on("child_added", (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
 });
+
+function take_picture() {
+    var trigger = firebase.database().ref("CAMERA/TRIGGER");
+    trigger.set(true);
+    console.log("Pic taken");
+
+}
+
+function load_cam_iframe() {
+    var main = document.getElementById("main");
+    var iframe = document.createElement("iframe");
+    main.innerHTML = "";
+    iframe.src = "cam.html";
+    main.appendChild(iframe);
+}
