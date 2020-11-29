@@ -20,6 +20,7 @@ images.on("child_added", (snapshot) => {
     console.log(data);
 });
 
+
 function take_picture() {
     var trigger = firebase.database().ref("CAMERA/TRIGGER");
     trigger.set(true);
