@@ -1,13 +1,15 @@
 <html lang="en">
-    
+<!-- this is a branch -->
+
 <head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura IoT</title>
 </head>
+
 <body>
-    <h1>Aura IoT</h1>
+  <h1>Aura IoT</h1>
   <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -17,5 +19,22 @@
   <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
   <script src="main.js"></script>
-    
+  
+  <div id="container">
+    <h2 di="menuheader">Select node:</h2>
+
+    <div id="main">
+      <!-- dynamic html insertion goes here -->
+    </div>
+
+    <div id="menu">
+      <button onclick="load_cam_iframe()">Camera</button>
+      <button>Vibration Sensor</button>
+      <button>Proximity Sensor</button>
+      <button>Bluetooth Lock</button>
+    </div>
+  </div>
+
+
+
 </html>
