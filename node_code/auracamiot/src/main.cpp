@@ -185,16 +185,15 @@ void setup() {
 
         if (firebaseData.boolData()) { // if triggered then take pic and upload
             digitalWrite(FLASH, use_flash);
-
+            
             image_string = Photo2Base64();
 
             Firebase.pushString(firebaseData, photo_path, image_string);
             Firebase.setBool(firebaseData, trigger_path, false);
         }
-        // digitalWrite(FLASHLED, LOW);
+        digitalWrite(FLASH, LOW);
         delay(30);
     }
-
 }
 
 void loop() {
