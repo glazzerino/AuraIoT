@@ -42,4 +42,5 @@ function load_prox_iframe() {
     main.innerHTML = "";
     iframe.src = "prox_sensor/prox.html";
     main.appendChild(iframe);
+    
 }

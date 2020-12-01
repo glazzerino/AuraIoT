@@ -34,12 +34,17 @@ logs.on("value", (snapshot) => {
 });
 
 
+<<<<<<< HEAD
 checkUncheck(lockStatus);
+=======
+uncheck();
+>>>>>>> b7c197f741be1ee6a274e507fd3c76481d2f7089
 
 function reload() {
     check();
 }
 
+<<<<<<< HEAD
 function checkUncheck() {
     let switchStatus = document.getElementById('togBtn');
     switch(lockStatus){
@@ -52,6 +57,18 @@ function checkUncheck() {
     }
     
     
+=======
+function check() {
+    let switchStatus = document.getElementById('togBtn');
+    switchStatus.checked = true;
+    console.log("paco es gei");    
+}
+
+function uncheck() {
+    let switchStatus = document.getElementById('togBtn');
+    switchStatus.checked = true;
+    console.log("paco es gei");    
+>>>>>>> b7c197f741be1ee6a274e507fd3c76481d2f7089
 }
 
 
