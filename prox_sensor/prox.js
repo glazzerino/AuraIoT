@@ -34,7 +34,7 @@ logs.on("value", (snapshot) => {
 });
 
 
-checkUncheck();
+uncheck();
 
 function reload() {
     check();
