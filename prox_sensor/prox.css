@@ -3,9 +3,32 @@ body {
     background-color: F3EFF5;
 }
 
+label#table {
+  position: relative;
+  left: -165px;
+  top: 50px;
+}
+
+table#log {
+  position: relative;
+  left: -0px;
+  top: 50px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
+    top: -10px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
     display: inline-block;
     width: 30px;
     height: 17px;

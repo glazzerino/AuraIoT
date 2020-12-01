@@ -11,22 +11,37 @@
 
 </head>
 <body>
-        <!-- dynamic insertion goes here -->
+    <h1>Proximity sensor</h1>
     </div>    
-    
+
+    <!-- Lock Switch -->
+    <label>Door lock:</label>
     <label class="switch" onchange="lock()">
         <input type="checkbox" value="false" id="togBtn">
         <span class="slider round" on></span>
     </label>
-    <script src="prox.js"></script>
-    <button onclick="reload()">Show door log</button>
+
+    <!-- Reload button -->
     <button onclick="reload()">reload</button>
-      
-     <!-- Rounded switch -->
-    <label class="switch" onchange="lock()">
-    <input type="checkbox" value="false" id="togBtn">
-    <span class="slider round" on></span>
-    </label>
+
+    <!-- Table Logs -->
+    <label style="font-size: 0.5cm" id="table">Door status log</label>
+    <table style="width:15%" id="log">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>lol</th>
+                <th>XD</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="prox.js"></script>
 
 </body>
 </html>
