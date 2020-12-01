@@ -13,4 +13,14 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
+var isClose = true;
+var getBT = firebase.database().ref("Cerrojo/Storage");
+
+getBT.on('child', (snapshot) =>{
+    const data = snapshot.val();
+
+    if(isClose){
+        console.log(data)
+    }
+});
 
