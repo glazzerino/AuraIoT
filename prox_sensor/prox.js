@@ -20,7 +20,7 @@ lock_get.on('value', (snapshot) =>{
     console.log(data);
     lockStatus = parseInt(data, 10);
     console.log(lockStatus);
-})
+});
 
 var logs = firebase.database().ref("GARAGE_DOOR/DOOR_STATUS_log/");
 
@@ -34,30 +34,12 @@ logs.on("value", (snapshot) => {
 });
 
 
-<<<<<<< HEAD
-checkUncheck(lockStatus);
-=======
 uncheck();
->>>>>>> b7c197f741be1ee6a274e507fd3c76481d2f7089
 
 function reload() {
     check();
 }
 
-<<<<<<< HEAD
-function checkUncheck() {
-    let switchStatus = document.getElementById('togBtn');
-    switch(lockStatus){
-        case 0:
-            switchStatus.checked = false;
-        case 1:
-            switchStatus.checked = true;
-            console.log("paco es gei");
-
-    }
-    
-    
-=======
 function check() {
     let switchStatus = document.getElementById('togBtn');
     switchStatus.checked = true;
@@ -68,7 +50,6 @@ function uncheck() {
     let switchStatus = document.getElementById('togBtn');
     switchStatus.checked = true;
     console.log("paco es gei");    
->>>>>>> b7c197f741be1ee6a274e507fd3c76481d2f7089
 }
 
 
