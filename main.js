@@ -35,3 +35,11 @@ function load_cam_iframe() {
     main.appendChild(iframe);
     
 }
+
+function load_prox_iframe() {
+    var main = document.getElementById("main");
+    var iframe = document.createElement("iframe");
+    main.innerHTML = "";
+    iframe.src = "prox_sensor/prox.html";
+    main.appendChild(iframe);
+}
