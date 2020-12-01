@@ -39,3 +39,14 @@ function take_picture() {
     trigger.set(true);
     console.log("Pic taken");
 }
+
+function toggle_flash() {
+    var flashval = false;
+    firebase.database().ref("CAMERA/FLASH").once("value").then((snapshot) => {
+        flashval = snapshot.data[0];
+    });
+    console.log(flashval);
+    // if (document.getElementsById("togBtn").check) {
+
+    // }
+}
