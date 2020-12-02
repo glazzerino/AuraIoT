@@ -17,6 +17,7 @@ FirebaseData firebaseData;
 #define vibration  D1
 #define led  D7
 int val;
+int contExterno = 0;
 int cont = 0;
 bool verif = false;
 
@@ -61,12 +62,26 @@ void loop() {
       Firebase.getBool(firebaseData, "/HitDetector/Alarm");
       verif = firebaseData.boolData();
       cont++;
+      contExterno++;
       delay(500);
     }else{
       digitalWrite(led, LOW);
+      contExterno = 0;
       delay(1500);
     }
   }else{
+    if(contExterno == 0){
+      timeClient.update();
+      String formattedTime = timeClient.getFormattedTime();
+      unsigned long epochTime = timeClient.getEpochTime();
+      struct tm *ptm = gmtime ((time_t *)&epochTime);
+      int monthDay = ptm->tm_mday;
+      int currentMonth = ptm->tm_mon+1;
+      int currentYear = ptm->tm_year+1900;
+      String currentDate = String(currentYear) + "-" + String(currentMonth) + "-" + String(monthDay) + "/" + formattedTime;
+      Firebase.pushString(firebaseData,"/HitDetector/Alarm_Log", currentDate);
+      contExterno++; 
+    }
     if(cont%2 == 0){
       digitalWrite(led, HIGH);
       cont++;
