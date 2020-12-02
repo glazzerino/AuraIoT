@@ -15,14 +15,14 @@
     </div>    
 
     <!-- Lock Switch -->
-    <label>Door lock:</label>
+    <label id="doorLock">Door lock:</label>
     <label class="switch" onchange="lock()">
         <input type="checkbox" value="false" id="togBtn">
         <span class="slider round" on></span>
     </label>
 
     <!-- Reload button -->
-    <button onclick="reload()">reload</button>
+    <button onclick="reload()" id="reloadBtn">reload</button>
 
     <!-- Table Logs -->
     <label style="font-size: 0.5cm" id="table">Door status log</label>
@@ -30,7 +30,7 @@
         <thead>
             <tr>
                 <th>Date</th>
-                <th>status</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>

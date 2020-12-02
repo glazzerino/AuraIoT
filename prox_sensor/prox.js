@@ -52,7 +52,6 @@ function reload() {
     setTimeout(function addToTable(){
         var tbodyRef = document.getElementById('log').getElementsByTagName('tbody')[0];
         tbodyRef.innerHTML = "";
-        console.log("XDDD");
         for (let i = logList.length-1; i > -1; i--) {
             var data = logList[i].split(", ");
             var newRow = tbodyRef.insertRow();
@@ -85,6 +84,8 @@ function lock() {
     } else {
         trigger.set(0);
     }
+
+    reload();
 }
 
 setup();
