@@ -10,6 +10,8 @@ label#table {
 }
 
 table#log {
+  table-layout: fixed;
+  width: 360px;
   position: relative;
   left: -0px;
   top: 50px;
@@ -18,8 +20,10 @@ table#log {
 }
 
 th, td {
+  width: 360px;
   border: 1px solid black;
   border-collapse: collapse;
+  padding: 5px;
 }
 
 /* The switch - the box around the slider */
