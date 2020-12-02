@@ -15,12 +15,9 @@ var database = firebase.database();
 
 var isClose;
 var getBT = firebase.database().ref("Cerrojo/Storage");
-
-
+var dataList;
 
 getBT.on('child_added', (snapshot) =>{
-    const data = snapshot.val();
-    
     firebase.database().ref("Cerrojo/Proximidad").once("value").then((snapshot) => {
         isClose = snapshot.val();
 
@@ -30,5 +27,31 @@ getBT.on('child_added', (snapshot) =>{
         else if(!isClose){
             document.getElementById("A").textContent = "Cerrado";
         }
+
+        
     });
+
+    getBT.on('value', (snapshot) => {
+        const data = snapshot.val();
+        dataList = [];
+
+        for (element in data){
+            dataList.push(data[element]);
+        }
+
+        var tbodyRef = document.getElementById('T').getElementsByTagName('tbody')[0];
+        tbodyRef.innerHTML = "";
+        for (let i = dataList.length-1; i > -1; i--) {
+            var log = dataList[i].split(", ");
+            var newRow = tbodyRef.insertRow();
+            var newCell = newRow.insertCell(); var newCell1 = newRow.insertCell();
+            var newText = document.createTextNode(log[0]); var newText1 = document.createTextNode(log[1]);
+            newCell.appendChild(newText); newCell1.appendChild(newText1);
+        };   
+
+    });
+    
+
+    
+
 });
