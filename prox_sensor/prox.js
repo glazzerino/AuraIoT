@@ -30,36 +30,7 @@ function setup() {
     });
 
     // get log 
-    reload();
-}
-
-
-var logList = []
-function reload() {
-    var logs = firebase.database().ref("GARAGE_DOOR/DOOR_STATUS_log/");
-    logList = [];
-    logs.on("value", (snapshot) => {
-        var data = snapshot.val();
-        for (key in data){
-            logList.push(data[key]);
-        }
-    });
-    setTimeout(function displayValues () {
-        for (let i = logList.length-1; i > -1; i--) {
-            console.log(logList[i]);
-        };
-    }, 250);
-    setTimeout(function addToTable(){
-        var tbodyRef = document.getElementById('log').getElementsByTagName('tbody')[0];
-        tbodyRef.innerHTML = "";
-        for (let i = logList.length-1; i > -1; i--) {
-            var data = logList[i].split(", ");
-            var newRow = tbodyRef.insertRow();
-            var newCell = newRow.insertCell(); var newCell1 = newRow.insertCell();
-            var newText = document.createTextNode(data[0]); var newText1 = document.createTextNode(data[1]);
-            newCell.appendChild(newText); newCell1.appendChild(newText1);
-        };      
-    }, 500);
+    //reload();
 }
 
 
@@ -85,7 +56,32 @@ function lock() {
         trigger.set(0);
     }
 
-    reload();
+    //reload();
 }
 
 setup();
+var logList = []
+var logs = firebase.database().ref("GARAGE_DOOR/DOOR_STATUS_log/");
+logList = [];
+logs.on("value", (snapshot) => {
+    var data = snapshot.val();
+    for (key in data){
+        logList.push(data[key]);
+    }
+    setTimeout(function displayValues () {
+        for (let i = logList.length-1; i > -1; i--) {
+            console.log(logList[i]);
+        };
+    }, 250);
+    setTimeout(function addToTable(){
+        var tbodyRef = document.getElementById('log').getElementsByTagName('tbody')[0];
+        tbodyRef.innerHTML = "";
+        for (let i = logList.length-1; i > -1; i--) {
+            var data = logList[i].split(", ");
+            var newRow = tbodyRef.insertRow();
+            var newCell = newRow.insertCell(); var newCell1 = newRow.insertCell();
+            var newText = document.createTextNode(data[0]); var newText1 = document.createTextNode(data[1]);
+            newCell.appendChild(newText); newCell1.appendChild(newText1);
+        };      
+    }, 500);
+});
