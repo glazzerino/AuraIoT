@@ -25,14 +25,22 @@ state.on('value', (snapshot)=>{
     }
 });
 
+act.on('value', (snapshot)=>{
+    const data = snapshot.val();
+    if(data == true){
+        document.getElementById("A").innerHTML = "Activado";
+    }
+    else{
+        document.getElementById("A").innerHTML = "Desactivado";
+    }
+});
+
 function activate() {
     var aux = act.set(true);
     console.log("Turn On");
-    document.getElementById("A").innerHTML = "Activado"
 }
 
 function desactivate() {
     var aux = act.set(false);
     console.log("Turn Off");
-    document.getElementById("A").innerHTML = "Desactivado"
 }
