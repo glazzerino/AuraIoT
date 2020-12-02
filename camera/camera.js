@@ -12,25 +12,49 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-
+var index = 0;
 var images = firebase.database().ref("CAMERA/IMAGE/");
 var photos = []
-images.on("value", (snapshot) => {
+sync();
+show_image(photos.length-1);
+function sync() {
+    images.on("value", (snapshot) => {
     var data = snapshot.val();
+    photos = [];
     for (key in data){
         // console.log(key);
         photos.push(data[key]);
     }
+    index = photos.length-1;
 });
+    console.log("SYNCED");
+}
 
-function show() {
+function scroll_image(direction) {
     
-    for (i in photos) {
-        console.log(photos[i]);
+    if (direction) {
+        index += 1;
+    } else {
+        index -= 1;
     }
+    if (index < 0 ) {
+        index = photos.length - 1;
+    }
+    else if (index > photos.length-1) {
+        index = 0;
+    }
+    console.log(index);
+    // False for left, true for right
+    
+    show_image(index);
+}
+
+function show_image(i) {
     var picframe = document.getElementById("image_frame");
+    picframe.innerHTML = "";
+
     var image = document.createElement("img");
-    image.src = photos[photos.length-1];
+    image.src = photos[i];
     picframe.appendChild(image);
 }
 
@@ -38,15 +62,17 @@ function take_picture() {
     var trigger = firebase.database().ref("CAMERA/TRIGGER");
     trigger.set(true);
     console.log("Pic taken");
+    show_image(index);
 }
 
 function toggle_flash() {
-    var flashval = false;
-    firebase.database().ref("CAMERA/FLASH").once("value").then((snapshot) => {
-        flashval = snapshot.data[0];
-    });
-    console.log(flashval);
-    // if (document.getElementsById("togBtn").check) {
+    // firebase.database().ref("CAMERA/FLASH").once("value").then((snapshot) => {
+    //     var flashval = false;
+    //     flashval = snapshot.val();
+    //     console.log(flashval);
+    // });
+    var flash_setting = document.getElementById("togBtn").checked;
 
-    // }
+    firebase.database().ref("CAMERA/FLASH").set({flash_setting});
+    console.log("flash control toggled");
 }

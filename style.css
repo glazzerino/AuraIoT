@@ -37,18 +37,21 @@ body {
     padding: 2%;
     height: 80%;
 }
+
 #menuheader {
     display: grid;
     font-size: larger;
     grid-area: menuhead;
 }
+
 #menu button {
     border-radius: 0.4rem;
     border: none;
     width: 50%;
     height: 70%;
-    padding: 10%;
-    
+    /* padding: 10%; */
+    font-size: x-large;
+    align-content: center;
 }
 /* #menu button:hob */
 

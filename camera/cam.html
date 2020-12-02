@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cam.css">
@@ -11,19 +12,37 @@
 
 </head>
 <body>
+    
+    <script src="camera.js"></script>
+
+    
+    <span>
+        <p1>Use flash:</p1>
+        <label class="switch" onchange="toggle_flash()">
+            <input type="checkbox" value="false" id="togBtn">
+            <span class="slider round" on></span>
+        </label>
+    <br>
+    
+    <div id="cam_main">
+    
     <div id="image_frame">
         <!-- dynamic insertion goes here -->
     </div>    
-    <script src="camera.js"></script>
 
-    <span>
-        <button onclick="show()">Show photos</button>
-        <button onclick="take_picture()">Shutter</button>
+    <span id="control_bar">
+        <span>
+            <!-- <button onclick="scroll_image(true)"> <- </button>  -->
+            <button href="#" id="previous" onclick="scroll_image(false)">&#8249;</button>
+            <button onclick="take_picture()">Shutter</button>
+
+            <button href="#" id="next" onclick="scroll_image(true)">&#8250;</button>
+        </span>
         
     </span>
-    <label class="switch" onchange="toggle_flash()">
-        <input type="checkbox" value="false" id="togBtn">
-        <span class="slider round" on></span>
-    </label>
+    </div>
+    
+    </span>
+    
 </body>
 </html>
