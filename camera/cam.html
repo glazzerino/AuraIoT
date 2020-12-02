@@ -13,15 +13,9 @@
 </head>
 <body>
     
-    <script src="camera.js"></script>
 
     
-    <span>
-        <p1>Use flash:</p1>
-        <label class="switch" onchange="toggle_flash()">
-            <input type="checkbox" value="false" id="togBtn">
-            <span class="slider round" on></span>
-        </label>
+    
     <br>
     
     <div id="cam_main">
@@ -37,12 +31,22 @@
             <button onclick="take_picture()">Shutter</button>
 
             <button href="#" id="next" onclick="scroll_image(true)">&#8250;</button>
-        </span>
-        
+        </span>    
+    </span>
+
+        <br>
+        <h3>Use flash:</h3>
+        <label class="switch" onchange="toggle_flash()">
+            <input type="checkbox" value="false" id="togBtn">
+            <span class="slider round" on></span>
+        </label>
+    </span>
     </span>
     </div>
     
     </span>
+
+    <script src="camera.js"></script>
     
 </body>
 </html>

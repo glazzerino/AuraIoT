@@ -16,18 +16,21 @@ var index = 0;
 var images = firebase.database().ref("CAMERA/IMAGE/");
 var photos = []
 sync();
-show_image(photos.length-1);
+console.log("started");
 function sync() {
-    images.on("value", (snapshot) => {
-    var data = snapshot.val();
-    photos = [];
-    for (key in data){
-        // console.log(key);
-        photos.push(data[key]);
-    }
-    index = photos.length-1;
-});
-    console.log("SYNCED");
+    images.once("value").then((snapshot) => {
+        var data = snapshot.val();
+        photos = [];
+        for (key in data){
+            // console.log(key);
+            photos.push(data[key]);
+        }
+        index = photos.length-1;
+        console.log("SYNC DONE");
+        console.log(index);
+        show_image(photos.length-1);
+
+    });
 }
 
 function scroll_image(direction) {
@@ -62,15 +65,11 @@ function take_picture() {
     var trigger = firebase.database().ref("CAMERA/TRIGGER");
     trigger.set(true);
     console.log("Pic taken");
+    sync();
     show_image(index);
 }
 
 function toggle_flash() {
-    // firebase.database().ref("CAMERA/FLASH").once("value").then((snapshot) => {
-    //     var flashval = false;
-    //     flashval = snapshot.val();
-    //     console.log(flashval);
-    // });
     var flash_setting = document.getElementById("togBtn").checked;
 
     firebase.database().ref("CAMERA/FLASH").set({flash_setting});
