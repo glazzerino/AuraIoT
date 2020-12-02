@@ -26,31 +26,31 @@ function toggleOn() {
 }
 
 var logList = []
-function showTable() {
-    var logs = firebase.database().ref("/HitDetector/Alarm_Log");
-    logList = [];
-    logs.on("value", (snapshot) => {
-        var data = snapshot.val();
-        for (key in data){
-            logList.push(data[key]);
-        }
-    });
-    setTimeout(function displayValues () {
-        for (let i = logList.length-1; i > -1; i--) {
+var logs = firebase.database().ref("/HitDetector/Alarm_Log");
+logList = [];
+logs.on("value", (snapshot) => {
+    var data = snapshot.val();
+    for (key in data) {
+        logList.push(data[key]);
+    }
+    setTimeout(function displayValues() {
+        for (let i = logList.length - 1; i > -1; i--) {
             console.log(logList[i]);
         };
     }, 250);
-    setTimeout(function addToTable(){
+    setTimeout(function addToTable() {
         var tbodyRef = document.getElementById('log').getElementsByTagName('tbody')[0];
         tbodyRef.innerHTML = "";
-        for (let i = logList.length-1; i > -1; i--) {
+        for (let i = logList.length - 1; i > -1; i--) {
             var data = logList[i];
             var newRow = tbodyRef.insertRow();
             var newCell = newRow.insertCell();
             var newText = document.createTextNode(data);
             newCell.appendChild(newText);
-        };      
+        };
     }, 500);
-}
+});
+    
+
 
 showTable();
