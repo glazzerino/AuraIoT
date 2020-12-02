@@ -22,10 +22,10 @@ getBT.on('child_added', (snapshot) =>{
         isClose = snapshot.val();
 
         if(isClose){
-            document.getElementById("A").textContent = "Abierto"; 
+            document.getElementById("A").textContent = "La puerta esta abierta"; 
         }
         else if(!isClose){
-            document.getElementById("A").textContent = "Cerrado";
+            document.getElementById("A").textContent = "La puerta esta cerrada";
         }
 
         
