@@ -59,10 +59,11 @@ body {
 
 #main{
     /* padding-right:2%; */
-    background-color: #B8BDB5;
+    background-color: #4c5663;
     grid-area: main;    
     display: grid;
-    
+    border-radius: 0rem;
+    border-color: white;
 }
 #main iframe {
     width: 100%;
