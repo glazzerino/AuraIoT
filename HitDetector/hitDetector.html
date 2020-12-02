@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hitDetector.css">
+     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+    <h1>Hit Detector</h1>
+</head>
+<body>   
+    <script src="hitDetector.js"></script>
+    <button onclick="toggleOff()">Deactivate Alarm</button>
+    <button onclick="toggleOn()">Activate Alarm</button>
+    <button onclick="showTable()">Reload</button>
+    <label style="font-size: 0.5cm" id="table">Alarm Log</label>
+    <table style="width:15%" id="log">
+        <thead>
+            <tr>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>

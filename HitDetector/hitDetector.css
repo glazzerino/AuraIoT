@@ -1,0 +1,25 @@
+table#log {
+    table-layout: fixed;
+    width: 360px;
+    position: relative;
+    left: -0px;
+    top: 50px;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    width: 360px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+  }
+  label#table {
+    position: relative;
+    left: -139px;
+    top: 50px;
+  }
+  body {
+    background-color: F3EFF5;
+  }
